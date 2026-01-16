@@ -5,7 +5,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class conexaoBD {
+public class ConexaoBD {
     public static void main(String[] args) {
         // O endpoint 'auth' que configuramos para retornar o status da conexão
         String url = "https://api.armcorporation.com.br/auth";
