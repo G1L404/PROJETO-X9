@@ -60,7 +60,7 @@
                         <Insets left="-190.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField minWidth="319.0" prefHeight="46.0" prefWidth="337.0" promptText="📧 Email" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #E0E0E0; -fx-background-color: white; -fx-pref-height: 45; -fx-pref-width: 300;">
+                  <TextField fx:id="txtEmail" minWidth="319.0" prefHeight="46.0" prefWidth="337.0" promptText="📧 Email" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #E0E0E0; -fx-background-color: white; -fx-pref-height: 45; -fx-pref-width: 300;">
                      <font>
                         <Font name="Segoe UI Semibold" size="17.0" />
                      </font>
@@ -68,12 +68,12 @@
                         <Insets />
                      </opaqueInsets>
                   </TextField>
-                  <PasswordField minWidth="319.0" opacity="0.9" prefHeight="42.0" prefWidth="294.0" promptText="🔒 Senha" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #E0E0E0; -fx-background-color: white; -fx-pref-height: 45; -fx-pref-width: 300;">
+                  <PasswordField fx:id="txtSenha" minWidth="319.0" opacity="0.9" prefHeight="42.0" prefWidth="294.0" promptText="🔒 Senha" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #E0E0E0; -fx-background-color: white; -fx-pref-height: 45; -fx-pref-width: 300;">
                      <font>
                         <Font name="Segoe UI Semibold" size="17.0" />
                      </font>
                   </PasswordField>
-                  <Button minWidth="373.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="374.0" styleClass="botao-entrar" text="Entrar" />
+                  <Button fx:id="btnEntrar" onAction="#fazerLogin" minWidth="373.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="374.0" styleClass="botao-entrar" text="Entrar" />
                   <HBox alignment="CENTER" prefHeight="6.0" prefWidth="375.0">
                      <children>
                         <Label text="Novo aqui?">
