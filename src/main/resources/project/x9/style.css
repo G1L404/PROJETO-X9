@@ -1,0 +1,21 @@
+/* Estilo padrão do botão */
+.botao-entrar {
+    -fx-background-color:  linear-gradient(to bottom right, #14264e, #3526d5);
+    -fx-background-radius: 25;
+    -fx-text-fill:  white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+    -fx-pref-height:45;
+    -fx-pref-width: 300;
+}
+
+/* Estilo quando o mouse passa por cima (Hover) */
+.botao-entrar:hover {
+    -fx-background-color: #FF0000; /* Azul mais claro/vibrante */
+    -fx-cursor: hand; /* Muda a seta do mouse para a "mãozinha" */
+}
+
+/* Estilo quando o botão é clicado */
+.botao-entrar:active {
+    -fx-background-color: #0e1a35; /* Fica um pouco mais escuro ao clicar */
+}

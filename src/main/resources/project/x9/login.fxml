@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="panePrincipal" focusTraversable="true" stylesheets="@style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.LoginController">
+   <children>
+      <HBox layoutX="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox maxWidth="5000.0" prefHeight="686.0" prefWidth="594.0" style="-fx-background-color: linear-gradient(to bottom right, #14264e, #3526d5);" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fitHeight="87.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logox9.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="310.0" prefWidth="594.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label prefHeight="102.0" prefWidth="522.0" text="Bem vindo!" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Verdana Bold" size="80.0" />
+                           </font>
+                        </Label>
+                        <Label opacity="0.85" prefHeight="84.0" prefWidth="520.0" text="Cidadão engajado faz a cidade melhor!" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Segoe UI Semilight" size="30.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="120.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" maxWidth="436.0" minWidth="436.0" prefHeight="436.0" prefWidth="436.0" spacing="30.0" HBox.hgrow="NEVER">
+               <children>
+                  <Label opacity="0.76" prefHeight="64.0" prefWidth="182.0" text="Login" textFill="#898989">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="43.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="-190.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField minWidth="319.0" prefHeight="46.0" prefWidth="337.0" promptText="📧 Email" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #E0E0E0; -fx-background-color: white; -fx-pref-height: 45; -fx-pref-width: 300;">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="17.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TextField>
+                  <PasswordField minWidth="319.0" opacity="0.9" prefHeight="42.0" prefWidth="294.0" promptText="🔒 Senha" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #E0E0E0; -fx-background-color: white; -fx-pref-height: 45; -fx-pref-width: 300;">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="17.0" />
+                     </font>
+                  </PasswordField>
+                  <Button minWidth="373.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="374.0" styleClass="botao-entrar" text="Entrar" />
+                  <HBox alignment="CENTER" prefHeight="6.0" prefWidth="375.0">
+                     <children>
+                        <Label text="Novo aqui?">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="linkCadastro" onAction="#irParaCadastro" style="-fx-text-fill: #3526d5; -fx-font-weight: bold; -fx-underline: false;" text="Criar nova conta">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
