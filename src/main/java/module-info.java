@@ -1,4 +1,4 @@
-module org.example.x9 {
+module project.x9 {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -13,4 +13,6 @@ module org.example.x9 {
 
     opens project.x9 to javafx.fxml;
     exports project.x9;
+    exports project.x9.controller;
+    opens project.x9.controller to javafx.fxml;
 }
