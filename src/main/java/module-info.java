@@ -11,6 +11,7 @@ module project.x9 {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.net.http;
+    requires com.google.gson;
 
     opens project.x9 to javafx.fxml;
     exports project.x9;
