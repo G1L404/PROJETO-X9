@@ -9,47 +9,54 @@ import java.net.http.HttpResponse;
 import java.util.Properties;
 
 public class ConexaoBD {
-    public static void main(String[] args) {
-        String url = "https://api.armcorporation.com.br/auth";
-        String apiToken = "";
 
-        // 1. Carregar o token do arquivo .properties
+    private static String apiToken;
+    // URL base da sua API no CloudPanel
+    private static final String URL_API = "https://api.armcorporation.com.br/";
+
+    public static void main(String[] args) {
+        carregarToken();
+
+        // Exemplo: Criando uma tabela pelo Java
+        String sql = "CREATE TABLE IF NOT EXISTS denúncias (id INT AUTO_INCREMENT PRIMARY KEY, relato TEXT)";
+        String resposta = executarComando(sql, "{}"); // {} para nenhum parâmetro
+
+        System.out.println("Resposta do Servidor: " + resposta);
+    }
+
+    private static void carregarToken() {
         Properties prop = new Properties();
         try (FileInputStream fis = new FileInputStream("config.properties")) {
             prop.load(fis);
             apiToken = prop.getProperty("API_AUTH_TOKEN");
         } catch (IOException e) {
-            System.err.println("Erro: Arquivo config.properties não encontrado na raiz.");
-            return;
+            System.err.println("Erro: config.properties não encontrado.");
         }
+    }
 
-        if (apiToken == null || apiToken.isEmpty()) {
-            System.err.println("Erro: Chave API_AUTH_TOKEN não definida no arquivo.");
-            return;
-        }
+    /**
+     * Método para enviar comandos SQL para a API
+     */
+    public static String executarComando(String sql, String jsonParams) {
+        // Monta o JSON manualmente ou use a biblioteca GSON
+        String jsonBody = "{\"query\": \"" + sql + "\", \"params\": " + jsonParams + "}";
 
         try {
             HttpClient client = HttpClient.newHttpClient();
 
-            // 2. Requisição com o Header de Autorização
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(url))
+                    .uri(URI.create(URL_API))
                     .header("Authorization", "Bearer " + apiToken)
-                    .GET()
+                    .header("Content-Type", "application/json")
+                    // MUDANÇA: Agora é POST com o corpo do JSON
+                    .POST(HttpRequest.BodyPublishers.ofString(jsonBody))
                     .build();
 
-            System.out.println("A ligar à API (Autenticação por ficheiro)...");
-
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-            if (response.statusCode() == 200) {
-                System.out.println("Sucesso! Resposta: " + response.body());
-            } else {
-                System.out.println("Erro " + response.statusCode() + ": " + response.body());
-            }
+            return response.body();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            return "Erro: " + e.getMessage();
         }
     }
 }
