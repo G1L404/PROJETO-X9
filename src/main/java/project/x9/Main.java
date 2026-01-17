@@ -5,24 +5,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import project.x9.view.GerenciadorTelas;
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // O caminho "/login.fxml" aponta para a pasta src/main/resources
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-
-        primaryStage.setTitle("X9 Cidadão - Login");
-
-        // Define o tamanho da janela (ajuste conforme seu design)
-        Scene scene = new Scene(root, 1366, 768);
-
-        primaryStage.setScene(scene);
-        primaryStage.setResizable(true); // Impede que o usuário redimensione e quebre o layout
-        primaryStage.show();
-        primaryStage.setMaximized(true);
+        GerenciadorTelas.setStage(primaryStage);
+        // Carregue a tela de login (caminho relativo dentro de resources)
+        GerenciadorTelas.trocarTela("project/x9/login.fxml", "X9 Cidadão - Login");
+        primaryStage.setMaximized(true); // se quiser abrir maximizado
     }
+
+
 
     public static void main(String[] args) {
         launch(args);

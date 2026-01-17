@@ -11,6 +11,7 @@ import project.x9.view.Alerts;
 import project.x9.view.GerenciadorTelas;
 import project.x9.repository.CidadaoRepository;
 
+
 public class LoginController {
 
     @FXML
@@ -53,13 +54,15 @@ public class LoginController {
         // Validação usando o Repository (DAO fake)
         boolean ok = repo.autenticar(email, senha);
 
-        if (ok){
+        if (ok) {
             System.out.println("Login Autorizado");
             Alerts.mostrarSucesso("Acesso Sucedido", "Bem vindo ao X9 Cidadão");
-        }
-        else {
+            // Caminho relativo para o FXML do dashboard
+            GerenciadorTelas.trocarTela("project/x9/dashboard.fxml", "Dashboard");
+        } else {
             Alerts.mostarErro("Acesso Negado", "Usuario ou Senha incorretos.");
         }
+
 
     }
 
