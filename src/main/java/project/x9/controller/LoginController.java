@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import project.x9.view.Alerts;
 import project.x9.view.GerenciadorTelas;
+import project.x9.repository.CidadaoRepository;
 
 public class LoginController {
 
@@ -25,6 +26,11 @@ public class LoginController {
     private Hyperlink linkCadastro;
     @FXML
     private AnchorPane panePrincipal;
+
+    // Repository responsável por simular a validação do login.
+    // Futuramente será conectado ao banco de dados.
+    private final CidadaoRepository repo = new CidadaoRepository();
+
 
     // O nome do método deve ser o mesmo que você colocou em "On Action" no Scene Builder
     @FXML
@@ -44,14 +50,17 @@ public class LoginController {
             Alerts.mostarErro("Campos Vazios", "Por favor, preencha e-mail e senha!");
             return;
         }
-        //Simulação do login (Atualizar depois com dados do banco) e mandar pra pagina inicial
-        if (email.equals("admin") && senha.equals("123")){
+        // Validação usando o Repository (DAO fake)
+        boolean ok = repo.autenticar(email, senha);
+
+        if (ok){
             System.out.println("Login Autorizado");
             Alerts.mostrarSucesso("Acesso Sucedido", "Bem vindo ao X9 Cidadão");
         }
         else {
             Alerts.mostarErro("Acesso Negado", "Usuario ou Senha incorretos.");
         }
+
     }
 
     @FXML
