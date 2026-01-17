@@ -10,6 +10,7 @@ module project.x9 {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.net.http;
 
     opens project.x9 to javafx.fxml;
     exports project.x9;
